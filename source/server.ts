@@ -9,4 +9,7 @@ const NAMESPACE = 'Server';
 // Create the server //////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 const httpServer = http.createServer(router);
-httpServer.listen(config.server.port, () => logging.info(NAMESPACE, `Server running on ${config.server.hostname}:${config.server.port}`));
+httpServer.listen(config.server.port, () => {
+    logging.lineBreak();
+    logging.info(NAMESPACE, `Server running on ${config.server.hostname}:${config.server.port}`);
+});
