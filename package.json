@@ -4,7 +4,7 @@
   "description": "🍸🍹 A multi-platform cocktail ordering application",
   "main": "source/server.ts",
   "scripts": {
-    "start": "nodemon source/server.ts",
+    "start": "nodemon .",
     "build": "rm -rf build/ && prettier --write source/ && tsc",
     "test": "jest",
     "lint": "npx eslint src --ext js"
@@ -18,7 +18,10 @@
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "src/server.js"
+      "source/app.ts",
+      "source/server.ts",
+      "source/config/",
+      "/sql/"
     ],
     "coverageThreshold": {
       "global": {
