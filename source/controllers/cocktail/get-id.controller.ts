@@ -18,8 +18,9 @@ const getCocktailById = (req: Request, res: Response, next: NextFunction) => {
     const query: Query = Cocktail.queryById(id);
 
     runQuery(NAMESPACE, query, res, (result) => {
-        if (result?.length > 0) res.status(OK).json({ result });
-        else
+        if (result?.length > 0) {
+            res.status(OK).json({ result: Cocktail.parseCocktailFromResult(result[0]) });
+        } else
             res.status(NotFound).json({
                 result: null,
                 message: 'No cocktail with that id'

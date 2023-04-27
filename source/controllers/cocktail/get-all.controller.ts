@@ -15,7 +15,7 @@ const getAllCocktails = (req: Request, res: Response, next: NextFunction) => {
 
     const query: Query = Cocktail.queryAll();
 
-    runQuery(NAMESPACE, query, res, (results) => res.status(OK).json({ results }));
+    runQuery(NAMESPACE, query, res, (results) => res.status(OK).json({ results: results.map(Cocktail.parseCocktailFromResult) }));
 };
 
 export default getAllCocktails;
