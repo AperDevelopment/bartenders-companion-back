@@ -116,7 +116,7 @@ To run this project, you will need to add the following environment variables.
 | `MYSQL_HOST`         | localhost            |
 | `MYSQL_DATABASE`     | bartenders-companion |
 | `MYSQL_USER`         | bartenders-companion |
-| `MYSQL_PASSWORD`     | <none>               |
+| `MYSQL_PASSWORD`     | `<none>`             |
 | **Server variables** |                      |
 | `SERVER_HOSTNAME`    | localhost            |
 | `SERVER_PORT`        | 1337                 |
