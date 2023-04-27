@@ -23,7 +23,7 @@ The back-end part features an API which you can access if you wish to create you
 #### Get all cocktails from database
 
 ```http
-  GET /api/v1/cocktails
+GET /api/v1/cocktails
 ```
 
 | Response code | Description                                |
@@ -33,7 +33,7 @@ The back-end part features an API which you can access if you wish to create you
 #### Get cocktail by id
 
 ```http
-  GET /api/v1/cocktails/${id}
+GET /api/v1/cocktails/${id}
 ```
 
 | Parameter | Type      | Description                           |
@@ -48,7 +48,7 @@ The back-end part features an API which you can access if you wish to create you
 #### Insert cocktail in database
 
 ```http
-  POST /api/v1/cocktails
+POST /api/v1/cocktails
 ```
 
 | Parameter      | Type      | Description                                        |
@@ -70,7 +70,7 @@ The back-end part features an API which you can access if you wish to create you
 #### Update item
 
 ```http
-  PUT /api/v1/cocktails/${id}
+PUT /api/v1/cocktails/${id}
 ```
 
 | Parameter      | Type      | Description                                        |
@@ -94,7 +94,7 @@ The back-end part features an API which you can access if you wish to create you
 #### Delete item
 
 ```http
-  DELETE /api/v1/stock/${stock_id}/ingredients/${id}
+DELETE /api/v1/stock/${stock_id}/ingredients/${id}
 ```
 
 | Parameter | Type     | Description                             |
