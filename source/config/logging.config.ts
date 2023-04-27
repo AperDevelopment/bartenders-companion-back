@@ -8,7 +8,7 @@ const shouldLogToFile = config.shouldLogToFile;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 const getTimeStamp = (): string => new Date().toISOString();
 
-const getMessage = (level: string, namespace: string, message: string, object?: any): string => `[${getTimeStamp()}] [${level}] [${namespace}] ${message}` + (object ?? '');
+const getMessage = (level: string, namespace: string, message: string, object?: any): string => `[${getTimeStamp()}] [${level}] [${namespace}] ${message}` + (object ? ` ${object}` : '');
 
 const getInfoMessage = (namespace: string, message: string, object?: any): string => getMessage('INFO', namespace, message, object);
 const getWarnMessage = (namespace: string, message: string, object?: any): string => getMessage('WARN', namespace, message, object);
