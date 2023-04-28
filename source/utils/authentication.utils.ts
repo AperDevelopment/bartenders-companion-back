@@ -11,9 +11,12 @@ export { ADMIN, USER };
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 import api_keys from '../api-keys.json';
 
-const getPermissionLevel = (api_key: string): number => {
+const convertKey = (key: string | string[] | undefined): string => (typeof key === 'string' ? key : '');
+
+const getPermissionLevel = (api_key: string | string[] | undefined): number => {
+    const key_string = convertKey(api_key);
     for (const { key, permission_level } of api_keys) {
-        if (key === api_key) return permission_level;
+        if (key === key_string) return permission_level;
     }
 
     return -1;

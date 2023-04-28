@@ -12,7 +12,7 @@ import getPermissionLevel from '../../utils/authentication.utils';
 const NAMESPACE = 'Cocktails';
 
 const getAllCocktails = (req: Request, res: Response, next: NextFunction) => {
-    const permission_level = getPermissionLevel(req.body.api_key);
+    const permission_level = getPermissionLevel(req.headers.api_key);
 
     logging.info(NAMESPACE, 'Getting all cocktails');
 

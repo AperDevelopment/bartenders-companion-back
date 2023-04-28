@@ -12,7 +12,7 @@ import getPermissionLevel, { ADMIN } from '../../utils/authentication.utils';
 const NAMESPACE = 'Cocktails';
 
 const createCocktail = (req: Request, res: Response, next: NextFunction) => {
-    const permission_level = getPermissionLevel(req.body.api_key);
+    const permission_level = getPermissionLevel(req.headers.api_key);
 
     if (permission_level !== ADMIN) return res.status(Unauthorized).json({ result: null, error: 'You are not allowed to use this method with these credentials.' });
 
