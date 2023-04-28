@@ -13,7 +13,7 @@ const NAMESPACE = 'Cocktails';
 
 const updateCocktail = (req: Request, res: Response, next: NextFunction) => {
     const id = Number(req.params.id);
-    const permission_level = getPermissionLevel(req.headers.api_key);
+    const permission_level = getPermissionLevel(req.get('X-Api-Key'));
 
     if (permission_level !== ADMIN) return res.status(Unauthorized).json({ result: null, error: 'You are not allowed to use this method with these credentials.' });
 

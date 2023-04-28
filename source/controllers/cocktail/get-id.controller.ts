@@ -13,7 +13,7 @@ const NAMESPACE = 'Cocktails';
 
 const getCocktailById = (req: Request, res: Response, next: NextFunction) => {
     const id = Number(req.params.id);
-    const permission_level = getPermissionLevel(req.headers.api_key);
+    const permission_level = getPermissionLevel(req.get('X-Api-Key'));
 
     logging.info(NAMESPACE, `Getting cocktail with id ${id}`);
 
