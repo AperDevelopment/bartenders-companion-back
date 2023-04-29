@@ -34,7 +34,7 @@ router.use((req, res, next) => {
 
     if (req.method == 'OPTIONS') {
         res.header('Access-Control-Allow-Methods', 'GET, DELETE, POST, PUT');
-        res.header('Access-Control-Allow-Headers', 'X-Api-Key');
+        res.header('Access-Control-Allow-Headers', 'X-Api-Key, Content-Type');
         return res.status(OK).json({});
     }
 
