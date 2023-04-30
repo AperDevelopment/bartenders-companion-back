@@ -1,4 +1,5 @@
 import { BadRequest, Created, NoContent, OK } from '../utils/HTTP_Code.utils';
+import { ADMIN } from '../utils/authentication.utils';
 import Query, { error } from './query.model';
 
 const TABLE_NAME = 'e_cocktail';
@@ -12,6 +13,32 @@ type Cocktail = {
     is_hot: boolean;
     ingredients: string[];
     instructions: string[];
+};
+
+const parseCocktailFromResult = (permission_level: number, result: any) => {
+    const { cocktail_id, cocktail_name, cocktail_description, volume_ml, is_alcoholic, is_vegan, is_hot, ingredients, instructions } = result;
+
+    if (permission_level === ADMIN)
+        return {
+            id: cocktail_id,
+            name: cocktail_name,
+            description: cocktail_description,
+            volume_ml,
+            is_alcoholic: is_alcoholic === 1,
+            is_vegan: is_vegan === 1,
+            is_hot: is_hot === 1,
+            ingredients: ingredients.split('\n'),
+            instructions: instructions.split('\n')
+        };
+    return {
+        id: cocktail_id,
+        name: cocktail_name,
+        description: cocktail_description,
+        volume_ml,
+        is_alcoholic: is_alcoholic === 1,
+        is_vegan: is_vegan === 1,
+        is_hot: is_hot === 1
+    };
 };
 
 const queryCreateFromBody = ({ name, description, volume_ml, is_alcoholic, is_vegan, is_hot, ingredients, instructions }: Cocktail): Query => {
@@ -80,6 +107,7 @@ const queryDelete = (id: number): Query => ({
 });
 
 export default {
+    parseCocktailFromResult,
     queryCreateFromBody,
     queryAll,
     queryById,

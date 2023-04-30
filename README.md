@@ -1,9 +1,10 @@
+
 ![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+
 
 **Bartender's Companion** is a multi-platform assistant designed to assist professional and home bartenders alike, by giving them tools to manage their stock, setup events and handle orders.
 
 The back-end part features an API which you can access if you wish to create your own front-end.
-
 # Tech Stack
 
 **Mobile web app:** React, TypeScript
@@ -13,10 +14,11 @@ The back-end part features an API which you can access if you wish to create you
 **Back-end:** Node.js, Express, TypeScript
 
 **Database:** MySQL
-
 # API Reference
 
 ## v1 (last updated: 26/04/2023)
+
+*Disclaimer: In order to use the POST, PUT, and DELETE, the header needs to feature a field named `X-Api-Key` with an API key that has admin privileges.*
 
 ### Cocktails
 
@@ -51,16 +53,16 @@ GET /api/v1/cocktails/${id}
 POST /api/v1/cocktails
 ```
 
-| Parameter      | Type      | Description                                        |
-| :------------- | :-------- | :------------------------------------------------- |
-| `name`         | `string`  | **Required**. Cocktail name                        |
-| `description`  | `string`  | Cocktail description                               |
-| `volume_ml`    | `integer` | **Required**. Volume served                        |
-| `is_alcoholic` | `boolean` | **Required**. Does the cocktail contain alcohol ?  |
-| `is_vegan`     | `boolean` | **Required**. Does the cocktail fit a vegan diet ? |
-| `is_hot`       | `boolean` | **Required**. Is the cocktail served hot ?         |
-| `ingredients`  | `string`  | **Required**. List of ingredients used             |
-| `instructions` | `string`  | **Required**. How to make the cocktail             |
+| Parameter       | Type      | Description                                        |
+| :-------------- | :-------- | :------------------------------------------------- |
+| `name`          | `string`  | **Required**. Cocktail name                        |
+| `description`   | `string`  | Cocktail description                               |
+| `volume_ml`     | `integer` | **Required**. Volume served                        |
+| `is_alcoholic`  | `boolean` | **Required**. Does the cocktail contain alcohol ?  |
+| `is_vegan`      | `boolean` | **Required**. Does the cocktail fit a vegan diet ? |
+| `is_hot`        | `boolean` | **Required**. Is the cocktail served hot ?         |
+| `ingredients`   | `string`  | **Required**. List of ingredients used             |
+| `instructions`  | `string`  | **Required**. How to make the cocktail             |
 
 | Response code   | Description                 |
 | :-------------- | :-------------------------- |
@@ -121,13 +123,14 @@ To run this project, you will need to add the following environment variables.
 | `SERVER_HOSTNAME`    | localhost            |
 | `SERVER_PORT`        | 1337                 |
 
+
 ## Authors
 
--   [@CreeperStone72](https://www.github.com/CreeperStone72)
+- [@CreeperStone72](https://www.github.com/CreeperStone72)
+
 
 ## Acknowledgements
 
 **[The Nerdy Canuck](https://www.youtube.com/@TheNerdyCanuck)**
-
--   [Restful API with NodeJS, Express & Typescript \[2020\]](https://www.youtube.com/watch?v=vyz47fUXcxU)
--   [Restful API with NodeJS, Express, Typescript & MySQL \[2020\]](https://www.youtube.com/watch?v=eTRSl1As83A)
+ - [Restful API with NodeJS, Express & Typescript \[2020\]](https://www.youtube.com/watch?v=vyz47fUXcxU)
+ - [Restful API with NodeJS, Express, Typescript & MySQL \[2020\]](https://www.youtube.com/watch?v=eTRSl1As83A)

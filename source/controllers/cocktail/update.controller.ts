@@ -6,12 +6,16 @@ import runQuery from '../../config/mysql.config';
 import Query from '../../model/query.model';
 import Cocktail from '../../model/cocktail.model';
 
-import { BadRequest, OK } from '../../utils/HTTP_Code.utils';
+import { BadRequest, OK, Unauthorized } from '../../utils/HTTP_Code.utils';
+import getPermissionLevel, { ADMIN } from '../../utils/authentication.utils';
 
 const NAMESPACE = 'Cocktails';
 
 const updateCocktail = (req: Request, res: Response, next: NextFunction) => {
     const id = Number(req.params.id);
+    const permission_level = getPermissionLevel(req.get('X-Api-Key'));
+
+    if (permission_level !== ADMIN) return res.status(Unauthorized).json({ result: null, error: 'You are not allowed to use this method with these credentials.' });
 
     logging.info(NAMESPACE, `Updating cocktail with id ${id}`);
 
